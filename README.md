@@ -20,7 +20,7 @@ You can find two added macros: "TotalRootLength" and "RootLength _in_DiameterCla
 # Setting  
 ## Create folders
 In mac, make two folders named "roots" and "dimameters" in home folder, which has house icon.  
-In Windows, make two folders named "roots" and "dimameters" in user folder.  
+In Windows, create two folders named "roots" and "dimameters" in user folder.  
   
 ## Set dpi
 ### Mesuring total root length
@@ -30,7 +30,7 @@ For example,
 dpi = ~~400;~~ 300;  
   
 ### Mesuring root length in dimameter classes.
-This macro only supported 400dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
+This macro only supported 400 dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
   
 ## Set the image cropping
 If you need to omit the frame of the case from the image, change the code in L6-9.  
@@ -52,7 +52,9 @@ You can open the file as space delimited file in Excel.
   
 # References
 When you use this macro in your paper, please refer to two papers.  
+  
 Tajima, Ryosuke and Kato, Yoichiro. 2011. Comparison of threshold algorithms for automatic image processing of rice roots using freeware ImageJ. Field Crops Research. 121: 460-463.  
+  
 Tajima, Ryosuke and Kato, Yoichiro. 2013. A Quick Method to Estimate Root Length Distribution in Diameter Classes by Using Freeware ImageJ. Plant Production. Science. 16: 9-11.  
   
   
