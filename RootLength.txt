@@ -1,0 +1,138 @@
+//dpi setting
+dpi = 400;
+
+//cropping 
+function cropping () {
+    x = 0; //setting
+    y = 0; //setting
+    width = getWidth (); //setting
+    height = getHeight (); //setting
+    makeRectangle (x, y, width, height);
+    run ("Crop");
+}
+
+
+//thinning roots
+function thinning () {
+    run("Convolve...", "text1=[0 1 0  1 6 1 0 1 0  ] normalize");
+    setThreshold(0, 1);
+    run("Threshold", "thresholded remaining black");
+    }
+
+
+//theresholding with Triangle Algorithm
+function autothresholding () {
+    setAutoThreshold("Triangle");
+    run("Threshold", "thresholded remaining black");
+    }
+
+
+//convolving for counting the connective numbers
+function convolving () {
+    run("Convolve...", "text1=[1 5 1  5 25 5 1 5 1  ] normalize");
+    }
+
+
+//converting to length (Kimura et al. 1999 Plant Soil 216: 117)
+function converting () {
+    nBins = 256;
+    getHistogram (values, counts, nBins);
+    for (i=0; i<nBins; i++) {
+        setResult ("Value", i, values[i]);
+        setResult ("Count", i, counts[i]);
+        }
+
+    //horizontal and vertical connects
+    HV1 = counts[156]+counts[161]+counts[167]+counts[172]+counts[177];
+    HV2 = counts[182]+counts[187]+counts[193]+counts[198]+counts[203];
+    HV3 = counts[208]+counts[213]+counts[219]+counts[224]+counts[229];
+    HV4 = counts[234]+counts[239]+counts[245]+counts[250]+counts[255];
+    HVconnects = (HV1+HV2*2+HV3*3+HV4*4)/2;
+
+    //diagonal connects
+    D1 = counts[135]+counts[161]+counts[187]+counts[213]+counts[239];
+    D2 = counts[141]+counts[167]+counts[193]+counts[219]+counts[245];
+    D3 = counts[146]+counts[172]+counts[198]+counts[224]+counts[250];
+    D4 = counts[151]+counts[177]+counts[203]+counts[229]+counts[255];
+    Dconnects = (D1+D2*2+D3*3+D4*4)/2;
+
+    //converting to length
+    a = (Dconnects)*(Dconnects)+(Dconnects+HVconnects*0.5)*(Dconnects+HVconnects*0.5);
+    b = sqrt(a)+HVconnects*0.5;
+    length = b/400*2.54;
+    return length;
+    }
+
+//analyses
+macro "TotalRootLength" {
+    print("Name", "TRL");
+    
+    dir = getDirectory("home") ;
+    dir_roots = dir + "roots/";
+    list = getFileList(dir_roots);
+    
+    for (i=0; i<list.length; i++) {
+        open (dir_roots +list[i]);
+        run ("8-bit");
+        cropping ();
+        autothresholding ();
+        run ("Invert"); //needed or no needed depending on user environment
+        run ("Skeletonize");
+        convolving ();
+        TotalLength = converting ();
+        print(list[i], round(TotalLength*2/3));
+        close();
+        run("Clear Results");
+        }
+    }
+
+
+macro "RootLength_in_DiameterClasses" {
+    print("Name", "<0.1", "0.1-0.2", "0.2-0.5", "0.5-1.0", ">1.0");
+    DiamImageName = newArray("01.tif","02.tif","03.tif","04.tif","05.tif","06.tif","07.tif","08.tif","09.tif","10.tif");
+    
+    dir = getDirectory("home") ;
+    dir_roots = dir + "roots/";
+    list = getFileList(dir_roots);
+    
+    for (i=0; i<list.length; i++) {
+        open (dir_roots +list[i]);
+        run ("8-bit");
+        cropping ();
+        autothresholding ();
+        dir_diams = dir + "diameters/";
+        //save images
+        for (j=0; j<10; j++) {
+            saveAs("Tiff", dir_diams+DiamImageName[j]);
+            thinning();
+            }
+        close();
+    
+        //measuring each image
+        EachLength = newArray(10);
+        list_diams = getFileList(dir_diams);
+        for (j=0; j<10; j++) {
+            open(dir_diams +list_diams[j]);
+            run ("Invert"); //needed or no needed depending on user environment
+            run ("Skeletonize");
+            convolving ();
+            EachLength[j] = converting ();
+            close();
+            }
+        
+        //estimation
+        RL0 = (EachLength[0]-EachLength[1])*2/3;
+        RL1 = (EachLength[1]-EachLength[2])*2/3;
+        RL2 = (EachLength[2]-EachLength[3])*2/3;
+        RL3 = (EachLength[3]-EachLength[4])*2/3;
+        RL4=(EachLength[4]-EachLength[5])*2/3;
+        RL5 = EachLength[5]-EachLength[6];
+        RL6 = EachLength[6]-EachLength[7];
+        RL7 = EachLength[7]-EachLength[8];
+        RL8 = EachLength[8]-EachLength[9];
+        RL9 = EachLength[9];
+        
+        print(list[i], round(RL0), round(RL1), round(RL2+RL3), round(RL4+RL5+RL6), round(RL7+RL8+RL9));
+        run("Clear Results");
+        }
+    }
