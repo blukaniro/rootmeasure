@@ -1,4 +1,5 @@
-Measuring root length with diameter classes by Ryosuke TAJIMA
+Total root length and root length in diameter classes  
+by Ryosuke TAJIMA  
 =====================
 
 # Download ImageJ and this ImageJ macro
@@ -28,7 +29,7 @@ For example,
 dpi = ~~400;~~ 300;  
   
 ### Mesuring root length in dimameter classes.
-Sorry. this macro only supported 400dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
+This macro only supported 400dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
 
 ## Set the image cropping
 If you need to omit the frame of the case from the image, change the code in L6-9.  
