@@ -13,13 +13,13 @@ https://imagej.net/Fiji/Downloads
 "RootLength.txt" in this repository  
   
 # Install macro to ImageJ  
-In ImageJ, sellect ImageJ macro "RootLength.txt" ("Plugins>Macros>install..."").  
+In ImageJ, select ImageJ macro "RootLength.txt" ("Plugins>Macros>install..."").  
 Check "Plugins>Macros..."".
 You can find two added macros: "TotalRootLength" and "RootLength _in_DiameterClasses".  
   
 # Setting  
 ## Create folders
-In mac, make two folders named "roots" and "dimameters" in home folder, which has house icon.  
+In mac, create two folders named "roots" and "dimameters" in home folder, which has house icon.  
 In Windows, create two folders named "roots" and "dimameters" in user folder.  
   
 ## Set dpi
