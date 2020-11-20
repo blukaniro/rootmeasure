@@ -34,6 +34,7 @@ This macro only supported 400dpi image and five dimater classes (<0.1, 0.1-0.2, 
   
 ## Set the image cropping
 If you need to omit the frame of the case from the image, change the code in L6-9.  
+For example,  
   
 x = ~~0;~~ 200;  
 y = ~~0;~~ 100;  
@@ -51,7 +52,8 @@ You can open the file as space delimited file in Excel.
   
 # References
 When you use this macro in your paper, please refer to two papers.  
-Tajima, R. Kato, Y. 2011. Comparison of threshold algorithms for automatic image processing of rice roots using freeware ImageJ. Field Crops Res. 121: 460-463.  
-Tajima, R. Kato, Y. 2013. A Quick Method to Estimate Root Length Distribution in Diameter Classes by Using Freeware ImageJ. Plant Prod. Sci. 16: 9-11.  
+Tajima, Ryosuke and Kato, Yoichiro. 2011. Comparison of threshold algorithms for automatic image processing of rice roots using freeware ImageJ. Field Crops Research. 121: 460-463.  
+Tajima, Ryosuke and Kato, Yoichiro. 2013. A Quick Method to Estimate Root Length Distribution in Diameter Classes by Using Freeware ImageJ. Plant Production. Science. 16: 9-11.  
+  
   
 Thanks.  
