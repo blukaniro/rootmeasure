@@ -15,12 +15,12 @@ https://imagej.net/Fiji/Downloads
 # Install macro to ImageJ  
 In ImageJ, select ImageJ macro "RootLength.txt" ("Plugins>Macros>install..."").  
 Check "Plugins>Macros..."".
-You can find two added macros: "TotalRootLength" and "RootLength _in_DiameterClasses".  
+You can find two added macros: "TotalRootLength" and "RootLength_in_DiameterClasses".  
   
 # Setting  
 ## Create folders
-In mac, create two folders named "roots" and "dimameters" in home folder, which has house icon.  
-In Windows, create two folders named "roots" and "dimameters" in user folder.  
+In mac, create two folders named "roots" and "dimameters" in home folder, which has House icon.  
+In Windows, create two folders named "roots" and "dimameters" in user folder (C:\Users\******).  
   
 ## Set dpi
 ### Mesuring total root length
@@ -36,19 +36,19 @@ This macro only supported 400 dpi image and five dimater classes (<0.1, 0.1-0.2,
 If you need to omit the frame of the case from the image, change the code in L6-9.  
 For example,  
   
-x = ~~0;~~ 200;  
-y = ~~0;~~ 100;  
-width = ~~getWidth ();~~ 2800;  
-height = ~~getHeight ();~~ 3800;  
+x = ~~0;~~ 500;  
+y = ~~0;~~ 430;  
+width = ~~getWidth ();~~ 2500;  
+height = ~~getHeight ();~~ 3200;  
   
   
 # Measure the length  
 Put all images in the "roots" folder.  
-Click "TotalRootLength" or "RootLength _in_DiameterClasses".  
+Click "TotalRootLength" or "RootLength_in_DiameterClasses".  
   
 # Save the data
-After estimation, save "Log" as txt file.  
-You can open the file as space delimited file in Excel.  
+After estimation, save "Log" as a txt file.  
+You can open the file as a space-delimited file in Excel.  
   
 # References
 When you use this macro in your paper, please refer to two papers.  
