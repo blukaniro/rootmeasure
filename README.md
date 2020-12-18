@@ -49,6 +49,7 @@ Click "TotalRootLength" or "RootLength_in_DiameterClasses".
 # Save the data
 After estimation, save "Log" as a txt file.  
 You can open the file as a space-delimited file in Excel.  
+The unit of root length is centimeter.  
   
 # References
 When you use this macro in your paper, please refer to two papers.  
