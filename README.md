@@ -58,5 +58,7 @@ Tajima, Ryosuke and Kato, Yoichiro. 2011. Comparison of threshold algorithms for
   
 Tajima, Ryosuke and Kato, Yoichiro. 2013. A Quick Method to Estimate Root Length Distribution in Diameter Classes by Using Freeware ImageJ. Plant Production. Science. 16: 9-11.  
   
+# Licence
+https://github.com/blukaniro/rootmeasure/blob/master/LICENSE
   
 Thanks.  
