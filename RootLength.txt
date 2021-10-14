@@ -78,6 +78,7 @@ macro "TotalRootLength" {
         autothresholding ();
         run ("Invert"); //needed or no needed depending on user environment
         run ("Skeletonize");
+//        run ("Invert"); //needed or no needed depending on user environment
         convolving ();
         TotalLength = converting ();
         print(list[i], round(TotalLength*2/3));
@@ -115,6 +116,7 @@ macro "RootLength_in_DiameterClasses" {
             open(dir_diams +list_diams[j]);
             run ("Invert"); //needed or no needed depending on user environment
             run ("Skeletonize");
+//        run ("Invert"); //needed or no needed depending on user environment
             convolving ();
             EachLength[j] = converting ();
             close();
