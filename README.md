@@ -13,7 +13,7 @@ https://imagej.net/software/fiji/downloads
   
 # Install macro to ImageJ  
 In ImageJ, select ImageJ macro "RootLength.txt" ("Plugins>Macros>install..."").  
-Check "Plugins>Macros..."".
+Check "Plugins>Macros..."".  
 You can find two added macros: "TotalRootLength" and "RootLength_in_DiameterClasses".  
   
 # Setting  
