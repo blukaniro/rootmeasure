@@ -6,8 +6,7 @@ by Ryosuke TAJIMA
 # Download ImageJ and this ImageJ macro
 ## ImageJ  
 https://imagej.nih.gov/ij/  
-https://imagej.net/Download  
-https://imagej.net/Fiji/Downloads  
+https://imagej.net/software/fiji/downloads  
   
 ## ImageJ macro  
 "RootLength.txt" in this repository  
@@ -24,23 +23,24 @@ In Windows, create two folders named "roots" and "dimameters" in user folder (C:
   
 ## Set dpi
 ### Mesuring total root length
-If you need to use the images except for 400 dpi, change the value in L2.  
+If you need to use the images except for 400 dpi, change the value in L82.  
 For example,  
   
-dpi = ~~400;~~ 300;  
+L82: dpi = ~~400;~~ 300;  
   
 ### Mesuring root length in dimameter classes.
-This macro only supported 400 dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
+This macro only supports 400 dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  
   
 ## Set the image cropping
-If you need to omit the frame of the case from the image, change the code in L6-9.  
+If you need to omit the frame of the case from the image, change the code in L3-6.  
 For example,  
   
-x = ~~0;~~ 500;  
-y = ~~0;~~ 430;  
-width = ~~getWidth ();~~ 2500;  
-height = ~~getHeight ();~~ 3200;  
+L3: x = ~~0;~~ 100;  
+L4: y = ~~0;~~ 150;  
+L5: width = ~~getWidth ();~~ 1500;  
+L6: height = ~~getHeight ();~~ 2000;  
   
+or modify and use L8.
   
 # Measure the length  
 Put all images in the "roots" folder.  
