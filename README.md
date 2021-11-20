@@ -23,10 +23,10 @@ In Windows, create two folders named "roots" and "dimameters" in user folder (C:
   
 ## Set dpi
 ### Mesuring total root length
-If you need to use the images except for 400 dpi, change the value in L82.  
+If you need to use the images except for 400 dpi, change the value in L14.  
 For example,  
   
-L82: dpi = ~~400;~~ 300;  
+L14: dpi = ~~400;~~ 300;  
   
 ### Mesuring root length in dimameter classes.
 This macro only supports 400 dpi image and five dimater classes (<0.1, 0.1-0.2, 0.2-0.5, 0.5-1.0, and >1.0 mm)  

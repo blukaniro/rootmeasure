@@ -9,6 +9,11 @@ function cropping () {
     run ("Crop");
 }
 
+//dpi setting
+function dpisetting() {
+    dpi=400; //setting
+    return dpi;
+}
 
 //thinning roots
 function thinning () {
@@ -61,6 +66,17 @@ function converting () {
     return length;
     }
 
+
+//run ("Invert") in measurement function is needed or no needed depending on user environment.
+function measurement () {
+    run ("Invert"); // <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- 
+    run ("Skeletonize");
+//    run ("Invert"); // <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- <- 
+    convolving ();
+    RootLength = converting ();
+    return RootLength;
+    }
+
 //analyses
 macro "TotalRootLength" {
     print("Name", "TRL");
@@ -74,12 +90,8 @@ macro "TotalRootLength" {
         run ("8-bit");
         cropping ();
         autothresholding ();
-        run ("Invert"); //needed or no needed depending on user environment
-        run ("Skeletonize");
-//        run ("Invert"); //needed or no needed depending on user environment
-        convolving ();
-        TotalLength = converting ();
-        dpi=400; //dpi setting
+        TotalLength = measurement ();
+        dpi=dpisetting();
         TRL = TotalLength*400/dpi*2/3;
         print(list[i], round(TRL));
         close();
@@ -114,11 +126,7 @@ macro "RootLength_in_DiameterClasses" {
         list_diams = getFileList(dir_diams);
         for (j=0; j<10; j++) {
             open(dir_diams +list_diams[j]);
-            run ("Invert"); //needed or no needed depending on user environment
-            run ("Skeletonize");
-//        run ("Invert"); //needed or no needed depending on user environment
-            convolving ();
-            EachLength[j] = converting ();
+            EachLength[j] = measurement ();
             close();
             }
         
