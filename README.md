@@ -45,8 +45,9 @@ or modify and use L8.
 # Measure the length  
 Put all images in the "roots" folder.  
 Click "TotalRootLength" or "RootLength_in_DiameterClasses".  
+The unit of length is a centimetre.  
   
-# Save the data
+# Save the data  
 After estimation, save "Log" as a txt file.  
 You can open the file as a space-delimited file in Excel.  
 The unit of root length is centimeter.  
